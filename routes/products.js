@@ -14,9 +14,4 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/search',(req, res)=> {
-    const search = req.body.searchBar
-    console.log(search) 
-})
-
 module.exports = router;
