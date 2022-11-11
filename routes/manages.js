@@ -36,7 +36,7 @@ router.post('/addProduct',[
     check("price" , "กรุณาป้อนราคาสินค้า").isFloat({min:0}),
     check("number" , "กรุณาป้อนจำนวนสินค้า").isInt({min:0}),
     check("dangerNumber" , "กรุณาป้อนจำนวนที่ใกล้หมด").isInt({min:0}),
-    check("safeNumber" , "กรุณาป้อนจำนวนที่่ปลอดภัย").isInt({min:0})
+    check("safeNumber" , "กรุณาป้อนจำนวนที่มีอยู่มาก").isInt({min:0})
 ], function(req, res, next) {
     const result = validationResult(req);
     var errors = result.errors;
@@ -90,7 +90,7 @@ router.post('/update',[
     check("price" , "กรุณาป้อนราคาสินค้า").isFloat({min:0}),
     check("number" , "กรุณาป้อนจำนวนสินค้า").isInt({min:0}),
     check("dangerNumber" , "กรุณาป้อนจำนวนที่ใกล้หมด").isInt({min:0}),
-    check("safeNumber" , "กรุณาป้อนจำนวนที่่ปลอดภัย").isInt({min:0})
+    check("safeNumber" , "กรุณาป้อนจำนวนที่มีอยู่มาก").isInt({min:0})
 ],(req, res)=> {
     const update_id = req.body.update_id
     const result = validationResult(req);
@@ -123,7 +123,7 @@ router.post('/update',[
 
 
 router.post('/updateNumber',[
-    check("number" , "กรุณาป้อนจำนวนสินค้า").isInt({min:0})
+    check("number" , "กรุณาป้อนจำนวนสินค้าที่ต้องการเพิ่มหรือลด").isInt({min:0})
 ],(req, res)=> {
     const update_id = req.body.edit_id
     const input = parseInt(req.body.number)

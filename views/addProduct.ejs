@@ -16,6 +16,14 @@
         <h1>เพิ่มสินค้า</h1>
     </div>
     <%- include layout %>
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">หน้าแรก</a>
+            <a class="nav-item nav-link" href="/products">สินค้าทั้งหมด</a>
+            <a class="nav-item nav-link" href="/manages">จัดการสินค้า</a>
+            <a class="nav-item nav-link" href="/contact">ช่องทางติดต่อ</a>
+        </div>
+    </nav>
         <div id="main">
             <div class="container">
                 <%- messages() %>
@@ -34,7 +42,7 @@
                         </div>
     
                         <div class="form-group">
-                            <label for="">ราคาขาย</label>
+                            <label for="">ราคา (บาท)</label>
                             <div class="" id="error-msg">
                                 <% if(locals.errors) { Object.values(errors).forEach(function(error) {
                                     if(error.param=='price' ){ %>
@@ -60,7 +68,7 @@
                         </div>
     
                         <div class="form-group">
-                            <label for="">จำนวนที่อันตราย</label>
+                            <label for="">จำนวนที่ใกล้หมด</label>
                             <div class="" id="error-msg">
                                 <% if(locals.errors) { Object.values(errors).forEach(function(error) {
                                     if(error.param=='dangerNumber' ){ %>
@@ -73,7 +81,7 @@
                         </div>
     
                         <div class="form-group">
-                            <label for="">จำนวนที่ปลอดภัย</label>
+                            <label for="">จำนวนที่มีอยู่มาก</label>
                             <div class="" id="error-msg">
                                 <% if(locals.errors) { Object.values(errors).forEach(function(error) {
                                     if(error.param=='safeNumber' ){ %>

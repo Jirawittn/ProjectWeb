@@ -12,6 +12,14 @@
         <h1>จัดการสินค้า</h1>
     </div>
     <%- include layout %>
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">หน้าแรก</a>
+            <a class="nav-item nav-link" href="/products">สินค้าทั้งหมด</a>
+            <a class="nav-item nav-link" href="/manages">จัดการสินค้า</a>
+            <a class="nav-item nav-link" href="/contact">ช่องทางติดต่อ</a>
+        </div>
+    </nav>
     <% if(locals.errors) { Object.values(errors).forEach(function(error) {
         if(error.param=='number' ){ %>
         <li id="li" class="alert alert-danger">
@@ -20,7 +28,7 @@
     <% } } )}%>
     <div id="main">
         <div id="content">
-            <a href="/manages/addProduct"><input type="button" class="btn btn-primary float-right" name="" value="เพิ่มสินค้า"></a>
+            <a href="/manages/addProduct"><input type="button" class="btn btn-primary float-right" name="" id="create" value="เพิ่มสินค้า"></a>
 
             <div id="content">
                 <h2>การค้นหา</h2>
@@ -33,7 +41,7 @@
                         <th id="price">ราคา (บาท)</th>
                         <th id="number">จำนวนที่เหลือ</th>
                         <th id="dnumber">จำนวนที่อันตราย</th>
-                        <th id="snumber">จำนวนที่ปลอดภัย</th>
+                        <th id="snumber">จำนวนที่มีอยู่มาก</th>
                         <th id="inputs">จำนวนที่เพิ่ม/ลด</th>
                         <th id="add">เพิ่ม</th>
                         <th id="sub">ลด</th>
@@ -42,7 +50,7 @@
                     </tr>
                     <% Object.values(manages).forEach(function(product){ %>
                         <tr>
-                            <td id="ex name"><%= product.name %></td>
+                            <td id="name"><%= product.name %></td>
                             <td id="price"><%= product.price %></td>
                             <% if(product.number >= product.safeNumber){ %>
                             <td id="number" style="color: green"><%= product.number %></td>
